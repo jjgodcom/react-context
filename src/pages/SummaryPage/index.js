@@ -1,19 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 const SummaryPage = () => {
+  const [checked, setChecked] = useState(false);
 
-  const [checked, setchecked] = useState(false)
+  const handleCheckboxChange = (e) => {
+    setChecked(e.target.checked);
+  };
 
   return (
     <div>
       <form>
-        <input 
+        <input
           type='checkbox'
           checked={checked}
-          id="confirm-checkbox"
-          onClick={(e) => setchecked(e.target.checked)}
+          id='confirm-checkbox'
+          onChange={handleCheckboxChange}
         />
-        {" "}
+        {' '}
         <label htmlFor='confirm-checkbox'>
           주문하려는 것을 확인하셨나요?
         </label>
@@ -23,7 +26,7 @@ const SummaryPage = () => {
         </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default SummaryPage
+export default SummaryPage;
